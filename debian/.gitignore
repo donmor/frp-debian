@@ -1,0 +1,12 @@
+/*.substvars
+/.debhelper/
+/debhelper-build-stamp
+/files
+/tmp/
+/frp/
+/frps/
+/frps-common/
+/frpc/
+/frpc-common/
+/*.debhelper.log
+/*.debhelper

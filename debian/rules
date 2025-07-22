@@ -1,0 +1,52 @@
+#!/usr/bin/make -f
+
+# See debhelper(7) (uncomment to enable).
+# Output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+
+# See FEATURE AREAS in dpkg-buildflags(1).
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# See ENVIRONMENT in dpkg-buildflags(1).
+# Package maintainers to append CFLAGS.
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# Package maintainers to append LDFLAGS.
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+GOPROXY ?= direct
+export GOPROXY
+export GO111MODULE=on
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	dh_auto_build -- build
+
+override_dh_installsystemd:
+	dh_installsystemd --name=frps
+	dh_installsystemd --name=frpc
+
+.IGNORE: execute_after_dh_install
+execute_after_dh_install:
+	chmod -R +w obj-*
+	rm -rf obj-*
+
+# Tidy
+execute_before_dh_auto_build:
+	go mod tidy
+
+# Fix strip error
+.IGNORE: override_dh_strip
+override_dh_strip:
+	dh_strip -a
+.IGNORE: override_dh_dwz
+override_dh_dwz:
+	dh_dwz -a
+
+# dh_make generated override targets.
+# This is an example for Cmake (see <https://bugs.debian.org/641051>).
+#override_dh_auto_configure:
+#	dh_auto_configure -- \
+#	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)

@@ -1,0 +1,6 @@
+frp (0.25.2-1) unstable; urgency=medium
+
+  * Update version of kcp-go.
+  * Fix connection leak of http health check. #1155
+
+ -- donmor <donmor3000@hotmail.com>  Mon, 21 Jul 2025 12:16:19 +0800

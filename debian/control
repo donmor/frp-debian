@@ -1,0 +1,72 @@
+Source: frp
+Section: net
+Priority: optional
+Maintainer: donmor <donmor3000@hotmail.com>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13), golang-any (>=1.12)
+Standards-Version: 4.7.2
+Homepage: https://github.com/fatedier/frp
+#Vcs-Browser: https://salsa.debian.org/debian/frp
+#Vcs-Git: https://salsa.debian.org/debian/frp.git
+
+Package: frp
+Architecture: all
+Depends:
+ frps (>= ${source:Version}),
+ frpc (>= ${source:Version}),
+ ${misc:Depends},
+Description: Fast Reverse Proxy - Meta package
+ Frp is a fast reverse proxy that allows you to expose a local server located
+ behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
+ as well as HTTP and HTTPS protocols, enabling requests to be forwarded to
+ internal services via domain name.
+
+Package: frps
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ frps-common (>= ${source:Version}),
+Description: Fast Reverse Proxy - Server
+ Frp is a fast reverse proxy that allows you to expose a local server located
+ behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
+ as well as HTTP and HTTPS protocols, enabling requests to be forwarded to
+ internal services via domain name.
+
+Package: frps-common
+Architecture: all
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ frps (>= ${source:Version}),
+Description: Fast Reverse Proxy - Server common files
+ Frp is a fast reverse proxy that allows you to expose a local server located
+ behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
+ as well as HTTP and HTTPS protocols, enabling requests to be forwarded to
+ internal services via domain name.
+
+Package: frpc
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ frpc-common (>= ${source:Version}),
+Description: Fast Reverse Proxy - Client
+ Frp is a fast reverse proxy that allows you to expose a local server located
+ behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
+ as well as HTTP and HTTPS protocols, enabling requests to be forwarded to
+ internal services via domain name.
+
+Package: frpc-common
+Architecture: all
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ frpc (>= ${source:Version}),
+Description: Fast Reverse Proxy - Client common files
+ Frp is a fast reverse proxy that allows you to expose a local server located
+ behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
+ as well as HTTP and HTTPS protocols, enabling requests to be forwarded to
+ internal services via domain name.
+

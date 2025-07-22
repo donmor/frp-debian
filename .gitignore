@@ -1,0 +1,10 @@
+*
+!debian/
+!.gitignore
+!README.md
+!LICENSE
+!.github/
+.github/*
+!.github/workflows/
+.github/workflows/*
+!.github/workflows/dpkg-buildpackage.yml

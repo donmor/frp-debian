@@ -1,0 +1,41 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/fatedier/frp
+Upstream-Name: frp
+Upstream-Contact: fatedier <fatedier@gmail.com>
+
+Files:
+ *
+Copyright:
+ 2015-2025 fatedier <fatedier@gmail.com>
+License: Apache-2.0
+
+# If you want to use GPL v2 or later for the /debian/* files use
+# the following clauses, or change it to suit. Delete these two lines
+Files:
+ debian/*
+Copyright:
+ 2025 donmor <donmor3000@hotmail.com>
+License: Apache-2.0
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the Apache License Version 2.0 as published by
+ the Apache Software Foundation.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ Apache License Version 2.0 for more details.
+ .
+ You should have received a copy of the Apache License Version 2.0 along with
+ this package. If not, see <https://www.apache.org/licenses/LICENSE-2.0>.
+Comment:
+ On Debian systems, the complete text of the Apache License Version 2.0
+ can be found in "/usr/share/common-licenses/Apache-2.0".
+
+# Please also look if there are files or directories which have a
+# different copyright/license attached and list them here.
+# Please avoid picking licenses with terms that are more restrictive than the
+# packaged work, as it may make Debian's contributions unacceptable upstream.
+#
+# If you need, there are some extra license texts available in two places:
+#   /usr/share/debhelper/dh_make/licenses/
+#   /usr/share/common-licenses/
