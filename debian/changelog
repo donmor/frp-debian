@@ -1,3 +1,9 @@
+frp (0.39.1-1) unstable; urgency=medium
+
+  * Fixed IPv6 address parse issue.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:17:59 +0800
+
 frp (0.39.0-1) unstable; urgency=medium
 
   * Added connect_server_local_ip in frpc to specify local IP connected to frps.
