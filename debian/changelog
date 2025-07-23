@@ -1,3 +1,11 @@
+frp (0.38.0-1) unstable; urgency=medium
+
+  * Add /healthz API.
+  * frpc support disable_custom_tls_first_byte .If set true, frpc will not send custom header byte.
+  * Use go standard embed package instead of statik.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:09:34 +0800
+
 frp (0.37.1-1) unstable; urgency=medium
 
   * Plugin https2https not work.
