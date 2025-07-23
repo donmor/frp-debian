@@ -1,3 +1,13 @@
+frp (0.29.0-1) unstable; urgency=medium
+
+  * New disable_log_color configure to disable console log color.
+  * Plugin https2http support attatch headers by plugin_header_ prefix.
+  * Provide a high-level Go API.
+  * max_pool_count is invalid.
+  * Judge error between IPv4 and IPv6 in proxy protocol.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 14:52:29 +0800
+
 frp (0.28.2-1) unstable; urgency=medium
 
   * Fix a bug that health check worker may stop unexpected.
