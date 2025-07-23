@@ -1,3 +1,13 @@
+frp (0.33.0-1) unstable; urgency=medium
+
+  * Server plugin add NewUserConn interface.
+  * New proxy type sudp to provide a safe way to expose udp service like stcp.
+  * Support load balancing for tcpmux.
+  * Fix invalid of AuthenticateNewWorkConns in frpc.
+  * Fix a panic problem if accept many connections concurrently.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 15:25:36 +0800
+
 frp (0.32.1-1) unstable; urgency=medium
 
   * New operation Ping and NewWorkConn support in Server Plugin.
