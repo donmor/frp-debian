@@ -1,3 +1,10 @@
+frp (0.28.0-1) unstable; urgency=medium
+
+  * Type http support load balancing.
+  * Fix a connection leak problem when login_fail_exit is false.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 14:10:10 +0800
+
 frp (0.27.1-1) unstable; urgency=medium
 
   * Add read timeout for TLS connection check.
