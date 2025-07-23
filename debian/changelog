@@ -1,3 +1,12 @@
+frp (0.36.0-1) unstable; urgency=medium
+
+  * New plugin https2https.
+  * frpc supports tls_server_name to override the default value from server_addr.
+  * Increase reconnect frequency if it occurs an network error between frpc and frps.
+  * Fix panic issue about xtcp.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 16:28:31 +0800
+
 frp (0.35.1-1) unstable; urgency=medium
 
   * Reduce binary file size.

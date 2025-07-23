@@ -33,10 +33,6 @@ execute_after_dh_install:
 	chmod -R +w obj-*
 	rm -rf obj-*
 
-# Tidy
-execute_before_dh_auto_build:
-	go mod tidy
-
 # Fix strip error
 .IGNORE: override_dh_strip
 override_dh_strip:
