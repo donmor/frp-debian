@@ -1,3 +1,9 @@
+frp (0.34.3-1) unstable; urgency=medium
+
+  * Command line parameters support enable_prometheus.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 15:48:38 +0800
+
 frp (0.34.2-1) unstable; urgency=medium
 
   * Stream data transfer delay(e.g. chunked data) for HTTP type proxy.
