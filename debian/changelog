@@ -1,3 +1,11 @@
+frp (0.45.0-1) unstable; urgency=medium
+
+  * Adjust http group load balancing to forward requests to each frpc proxy
+    round robin. Previous behavior is always forwarding requests to a single
+    proxy in the case of single concurrency.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:45:17 +0800
+
 frp (0.44.0-1) unstable; urgency=medium
 
   * Use auto generated certificates if plugin_key_path and plugin_crt_path are
