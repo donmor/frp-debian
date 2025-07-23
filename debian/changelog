@@ -1,3 +1,11 @@
+frp (0.42.0-1) unstable; urgency=medium
+
+  * Added new parameter config_dir in frpc to run multiple client instances in
+    one process. (Not all features can be supported in this mode)
+  * Equal sign in environment variables causes parsing error.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:24:51 +0800
+
 frp (0.41.0-1) unstable; urgency=medium
 
   * Support go http pprof.
