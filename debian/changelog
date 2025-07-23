@@ -1,3 +1,13 @@
+frp (0.34.0-1) unstable; urgency=medium
+
+  * Support TLS certificate and mutual TLS authentication.
+  * Support set max UDP package size, default is 1500.
+  * New e2e test framework.
+  * UDP and SUDP proxy don't support compression and encrytion.
+  * Call server plugins in fixed order.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 15:28:46 +0800
+
 frp (0.33.0-1) unstable; urgency=medium
 
   * Server plugin add NewUserConn interface.
