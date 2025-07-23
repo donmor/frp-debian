@@ -1,3 +1,15 @@
+frp (0.32.0-1) unstable; urgency=medium
+
+  * Support tls_only = true in frps.ini to enforce frps only accept TLS connection.
+  * Set detailed_errors_to_client = false in frps.ini to hide detailed error information to client.
+  * Support prometheus monitor.
+  * Optional OIDC authentication.
+  * New proxy type tcpmux. Support TCP port multiplexing over HTTP Connect tunnel.
+  * Bandwidth limit configure not compared correctly when reloading.
+  * Incorrect connection count stats.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 15:20:32 +0800
+
 frp (0.31.2-1) unstable; urgency=medium
 
   * Fix not release port when client start proxy error.
