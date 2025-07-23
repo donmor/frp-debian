@@ -1,7 +1,20 @@
+frp (0.39.0-1) unstable; urgency=medium
+
+  * Added connect_server_local_ip in frpc to specify local IP connected to frps.
+  * Added tcp_mux_keepalive_interval both in frpc and frps to set tcp_mux
+    keepalive interval seconds if tcp_mux is enabled. After using this params,
+    you can set heartbeat_interval to -1 to disable application layer heartbeat
+    to reduce traffic usage(Make sure frps is in the latest version).
+  * Server Plugin: Added client_address in Login Operation.
+  * Remove authentication for healthz api.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:14:50 +0800
+
 frp (0.38.0-1) unstable; urgency=medium
 
   * Add /healthz API.
-  * frpc support disable_custom_tls_first_byte .If set true, frpc will not send custom header byte.
+  * frpc support disable_custom_tls_first_byte .If set true, frpc will not send
+    custom header byte.
   * Use go standard embed package instead of statik.
 
  -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:09:34 +0800
@@ -9,7 +22,8 @@ frp (0.38.0-1) unstable; urgency=medium
 frp (0.37.1-1) unstable; urgency=medium
 
   * Plugin https2https not work.
-  * context canceled problem for http_proxy plugin when multiple requests reuse same connection.
+  * context canceled problem for http_proxy plugin when multiple requests reuse
+    same connection.
   * In some cases, frps can't get server name for https proxy.
 
  -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:06:29 +0800
@@ -17,7 +31,8 @@ frp (0.37.1-1) unstable; urgency=medium
 frp (0.37.0-1) unstable; urgency=medium
 
   * frpc add subcommand verify to validate configures before running.
-  * frpc support includes option to split multiple proxy configs into different files.
+  * frpc support includes option to split multiple proxy configs into different
+    files.
   * Support sudp in dashboard.
   * Use empty string as default value for dashboard user and password.
   * login_fail_exit is not valid when protocol = kcp.
@@ -40,8 +55,10 @@ frp (0.36.1-1) unstable; urgency=medium
 frp (0.36.0-1) unstable; urgency=medium
 
   * New plugin https2https.
-  * frpc supports tls_server_name to override the default value from server_addr.
-  * Increase reconnect frequency if it occurs an network error between frpc and frps.
+  * frpc supports tls_server_name to override the default value from
+    server_addr.
+  * Increase reconnect frequency if it occurs an network error between frpc and
+    frps.
   * Fix panic issue about xtcp.
 
  -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 16:28:31 +0800
@@ -56,7 +73,8 @@ frp (0.35.0-1) unstable; urgency=medium
 
   * Server Plugin supports HTTPS.
   * Fix IPv6 address parse problem.
-  * HTTP type proxy can't handle websocket protocol due to error Connection header value.
+  * HTTP type proxy can't handle websocket protocol due to error Connection
+    header value.
 
  -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 16:23:03 +0800
 
@@ -76,7 +94,8 @@ frp (0.34.1-1) unstable; urgency=medium
 
   * Support NTLM protocol for http proxy to connect frps.
   * Official docker image support on DockerHub and Github registry.
-  * Fix a dashboard stats data lost problem after client reconnect more than 7 days.
+  * Fix a dashboard stats data lost problem after client reconnect more than
+    7 days.
   * Fix TLS certificate verification failed.
 
  -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 15:42:42 +0800
@@ -113,7 +132,8 @@ frp (0.32.1-1) unstable; urgency=medium
 frp (0.32.0-1) unstable; urgency=medium
 
   * Support tls_only = true in frps.ini to enforce frps only accept TLS connection.
-  * Set detailed_errors_to_client = false in frps.ini to hide detailed error information to client.
+  * Set detailed_errors_to_client = false in frps.ini to hide detailed error
+    information to client.
   * Support prometheus monitor.
   * Optional OIDC authentication.
   * New proxy type tcpmux. Support TCP port multiplexing over HTTP Connect tunnel.
