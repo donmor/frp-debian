@@ -1,3 +1,10 @@
+frp (0.30.0-1) unstable; urgency=medium
+
+  * Support bandwidth limit for each proxy.
+  * New plugin http2https, explore https service as http protocol.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 15:13:17 +0800
+
 frp (0.29.1-1) unstable; urgency=medium
 
   * Fix bug when use_encryption is true for xtcp.
