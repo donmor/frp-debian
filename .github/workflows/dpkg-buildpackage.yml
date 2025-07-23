@@ -6,7 +6,7 @@ on:
 jobs:
   build_amd64:
     name: Build amd64 packages
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -21,9 +21,17 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip
@@ -43,7 +51,7 @@ jobs:
             frps-common_${{ env.FRP_VERSION }}-1_all.deb
   build_arm64:
     name: Build arm64 packages
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-22.04-arm
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -58,9 +66,17 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip
@@ -74,7 +90,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_arm64.deb
   build_i386:
     name: Build i386 packages
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -89,11 +105,19 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: '386'
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-i686-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -108,7 +132,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_i386.deb
   build_armhf:
     name: Build armhf packages
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-22.04-arm
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -123,12 +147,20 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: 'arm'
           GOARM: '7'
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-arm-linux-gnueabihf
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -143,7 +175,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_armhf.deb
   build_armel:
     name: Build armel packages
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-22.04-arm
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -158,12 +190,20 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: 'arm'
           GOARM: '5'
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-arm-linux-gnueabi
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -178,7 +218,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_armel.deb
 #  build_loong64:
 #    name: Build loong64 packages
-#    runs-on: ubuntu-24.04
+#    runs-on: ubuntu-22.04
 #    steps:
 #      - run: echo "Building with ${{ github.ref_name }}"
 #      - run: |
@@ -193,12 +233,20 @@ jobs:
 #          tag: ${{ github.ref_name }}
 #          tarBall: true
 #      - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+#      # Some hacks that use go 1.19 from debian
+#      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+#      - run: sudo apt update
+#      # End hacks
 #      - working-directory: frp-${{ env.FRP_VERSION }}
 #        env:
 #          GOARCH: 'loong64'
 #          DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
 #        run: |
 #          sudo apt-get build-dep .
+#          # Remove hacks
+#          sudo rm /etc/apt/sources.list.d/debian.list
+#          sudo apt update
+#          # End hacks
 #          sudo apt-get install binutils-loong64-linux-gnu
 #          rm -rf .github
 #          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -213,7 +261,7 @@ jobs:
 #            frps_${{ env.FRP_VERSION }}-1_loong64.deb
   build_mips64el:
     name: Build mips64el packages
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -228,12 +276,20 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: 'mips64le'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-mips64el-linux-gnuabi64
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -248,7 +304,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_mips64el.deb
   build_mipsel:
     name: Build mipsel packages
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -263,12 +319,20 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: 'mipsle'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-mipsel-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -283,7 +347,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_mipsel.deb
   build_ppc64el:
     name: Build ppc64el packages
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -298,12 +362,20 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: 'ppc64le'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-powerpc64le-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -318,7 +390,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_ppc64el.deb
   build_ppc64:
     name: Build ppc64 packages
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -333,12 +405,20 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: 'ppc64'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-powerpc64-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -353,7 +433,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_ppc64.deb
   build_riscv64:
     name: Build riscv64 packages
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -368,12 +448,20 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: 'riscv64'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-riscv64-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -388,7 +476,7 @@ jobs:
             frps_${{ env.FRP_VERSION }}-1_riscv64.deb
   build_s390x:
     name: Build s390x packages
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Building with ${{ github.ref_name }}"
       - run: |
@@ -403,12 +491,20 @@ jobs:
           tag: ${{ github.ref_name }}
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      # Some hacks that use go 1.19 from debian
+      - run: "echo -e 'deb [trusted=yes] http://deb.debian.org/debian bookworm main' | sudo tee /etc/apt/sources.list.d/debian.list"
+      - run: sudo apt update
+      # End hacks
       - working-directory: frp-${{ env.FRP_VERSION }}
         env:
           GOARCH: 's390x'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
+          # Remove hacks
+          sudo rm /etc/apt/sources.list.d/debian.list
+          sudo apt update
+          # End hacks
           sudo apt-get install binutils-s390x-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1

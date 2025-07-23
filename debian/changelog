@@ -1,3 +1,11 @@
+frp (0.46.0-1) unstable; urgency=medium
+
+  * Add oidc_scope parameter to frpc when authentication_method = oidc.
+  * Support quic protocol between frpc and frps.
+  * Upgrade oidc and oauth2 package which is forward compatible.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 19:04:34 +0800
+
 frp (0.45.0-1) unstable; urgency=medium
 
   * Adjust http group load balancing to forward requests to each frpc proxy
