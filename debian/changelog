@@ -1,3 +1,11 @@
+frp (0.26.0-1) unstable; urgency=medium
+
+  * Support Proxy Protocol.
+  * New plugin https2http.
+  * Fix router config conflict when frpc start by command line mode. #1165
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 11:39:29 +0800
+
 frp (0.25.3-1) unstable; urgency=medium
 
   * Fix panic error when reconnection with tls_enable is true.
