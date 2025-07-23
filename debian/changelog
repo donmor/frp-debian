@@ -1,3 +1,12 @@
+frp (0.32.1-1) unstable; urgency=medium
+
+  * New operation Ping and NewWorkConn support in Server Plugin.
+  * Add apiVersion and op params in Server Plugin HTTP request.
+  * Prevent frequently relogin when connection broken after login success soon.
+  * Fix a memory leak problem caused by frequently relogin.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 15:22:54 +0800
+
 frp (0.32.0-1) unstable; urgency=medium
 
   * Support tls_only = true in frps.ini to enforce frps only accept TLS connection.
