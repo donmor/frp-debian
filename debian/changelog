@@ -1,3 +1,11 @@
+frp (0.35.0-1) unstable; urgency=medium
+
+  * Server Plugin supports HTTPS.
+  * Fix IPv6 address parse problem.
+  * HTTP type proxy can't handle websocket protocol due to error Connection header value.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 16:23:03 +0800
+
 frp (0.34.3-1) unstable; urgency=medium
 
   * Command line parameters support enable_prometheus.
