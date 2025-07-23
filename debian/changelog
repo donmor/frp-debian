@@ -1,3 +1,12 @@
+frp (0.41.0-1) unstable; urgency=medium
+
+  * Support go http pprof.
+  * Change underlying TCP connection keepalive interval to 2 hours.
+  * Create new connection to server for sudp visitor when needed, to avoid
+    frequent reconnections.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:23:11 +0800
+
 frp (0.40.0-1) unstable; urgency=medium
 
   * Added dial_server_timeout in frpc to specify connecting timeout to frps.
