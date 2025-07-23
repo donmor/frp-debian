@@ -1,3 +1,10 @@
+frp (0.27.0-1) unstable; urgency=medium
+
+  * Proxy Protocol support plugin unix_domain_socket.
+  * frps support custom 404 page.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 13:48:22 +0800
+
 frp (0.26.0-1) unstable; urgency=medium
 
   * Support Proxy Protocol.
