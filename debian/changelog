@@ -1,3 +1,9 @@
+frp (0.27.1-1) unstable; urgency=medium
+
+  * Add read timeout for TLS connection check.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 14:06:04 +0800
+
 frp (0.27.0-1) unstable; urgency=medium
 
   * Proxy Protocol support plugin unix_domain_socket.
