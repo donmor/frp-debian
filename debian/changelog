@@ -1,3 +1,13 @@
+frp (0.40.0-1) unstable; urgency=medium
+
+  * Added dial_server_timeout in frpc to specify connecting timeout to frps.
+  * Additional EndpointParams can be set for OIDC.
+  * Added CloseProxy operation in server plugin.
+  * Added some randomness in reconnect delay.
+  * TLS server name is ignored when tls_trusted_ca_file isn’t set.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 18:20:50 +0800
+
 frp (0.39.1-1) unstable; urgency=medium
 
   * Fixed IPv6 address parse issue.
