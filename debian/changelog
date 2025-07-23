@@ -1,3 +1,10 @@
+frp (0.31.0-1) unstable; urgency=medium
+
+  * New server manage plugin to extend frp's ability.
+  * Improve xtcp's success rate in some special case.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 23 Jul 2025 15:14:55 +0800
+
 frp (0.30.0-1) unstable; urgency=medium
 
   * Support bandwidth limit for each proxy.
