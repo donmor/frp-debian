@@ -1,3 +1,23 @@
+frp (0.62.0-1) unstable; urgency=medium
+
+  * Feature Gates Introduced: This version introduces a new experimental
+    mechanism called Feature Gates. This allows users to enable or disable
+    specific experimental features before they become generally available.
+    Feature gates can be configured in the featureGates map within the
+    configuration file.
+  * VirtualNet Feature Gate: The first available feature gate is VirtualNet,
+    which enables the experimental Virtual Network functionality (currently in
+    Alpha stage).
+  * Virtual Network (VirtualNet): Introduce experimental virtual network
+    capabilities (Alpha). This allows creating a TUN device managed by frp,
+    enabling Layer 3 connectivity between different clients within the frp
+    network. Requires root/admin privileges and is currently supported on
+    Linux and macOS. Configuration is done via the virtualNet section and the
+    virtual_net plugin. Enable with feature gate VirtualNet. Note: As an Alpha
+    feature, configuration details may change in future releases.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 20:02:47 +0800
+
 frp (0.61.2-1) unstable; urgency=medium
 
   * Support metadatas and annotations in frpc proxy commands.
