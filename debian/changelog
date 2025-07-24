@@ -1,3 +1,13 @@
+frp (0.63.0-1) unstable; urgency=medium
+
+  * Support for YAML merge functionality (anchors and references with
+    dot-prefixed fields) in strict configuration mode without requiring
+    --strict-config=false parameter.
+  * Support for proxy protocol in UDP proxies to preserve real client
+    IP addresses.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 20:06:53 +0800
+
 frp (0.62.1-1) unstable; urgency=medium
 
   * VirtualNet: Resolved various issues related to connection handling,
