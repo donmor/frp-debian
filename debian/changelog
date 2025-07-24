@@ -1,3 +1,14 @@
+frp (0.47.0-1) unstable; urgency=medium
+
+  * Added config bandwidth_limit_mode in frpc, default value is client which is
+    current behavior. Optional value is server, to enable bandwidth limit in
+    server. The major aim is to let server plugin has the ability to modify
+    bandwidth limit for each proxy.
+  * dns_server supports ipv6.
+  * frpc supports graceful shutdown for protocol quic.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 10:35:56 +0800
+
 frp (0.46.1-1) unstable; urgency=medium
 
   * Server Plugin sends incorrect op name for NewWorkConn.
