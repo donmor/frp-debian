@@ -1,3 +1,17 @@
+frp (0.56.0-1) unstable; urgency=medium
+
+  * Support range ports mapping in TOML/YAML/JSON configuration file by using
+    go template syntax.
+  * Health check supports custom request headers.
+  * Enable compatibility mode for the Android system to solve the issues of
+    incorrect log time caused by time zone problems and default DNS resolution
+    failures.
+  * Fix the issue of incorrect interval time for rotating the log by day.
+  * Disable quic-go's ECN support by default. It may cause issues on certain
+    operating systems.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 15:53:28 +0800
+
 frp (0.55.1-1) unstable; urgency=medium
 
   * No feature changes, just a fix for the issue of no released assets in version 0.55.0.
