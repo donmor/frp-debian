@@ -1,3 +1,18 @@
+frp (0.50.0-1) unstable; urgency=medium
+
+  * Added support for allow_users in stcp, sudp, xtcp. By default, only the
+    same user is allowed to access. Use * to allow access from any user. The
+    visitor configuration now supports server_user to connect to proxies of
+    other users.
+  * Added fallback support to a specified alternative visitor when xtcp
+    connection fails.
+  * Increased the default value of MaxStreamWindowSize for yamux to 6MB,
+    improving traffic forwarding rate in high-latency scenarios.
+  * Fixed an issue where having proxies with the same name would cause
+    previously working proxies to become ineffective in xtcp.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 11:53:44 +0800
+
 frp (0.49.0-1) unstable; urgency=medium
 
   * The frpc has added the nathole discover command for testing the NAT type of
