@@ -176,41 +176,41 @@ jobs:
             frp_${{ env.FRP_VERSION }}-1_armel.changes
             frpc_${{ env.FRP_VERSION }}-1_armel.deb
             frps_${{ env.FRP_VERSION }}-1_armel.deb
-#  build_loong64:
-#    name: Build loong64 packages
-#    runs-on: ubuntu-24.04
-#    steps:
-#      - run: echo "Building with ${{ github.ref_name }}"
-#      - run: |
-#          TAG=${{ github.ref_name }}
-#          echo "FRP_VERSION=${TAG#v}" >> $GITHUB_ENV
-#      - uses: actions/checkout@v4
-#        with:
-#          path: frp-${{ env.FRP_VERSION }}
-#      - uses: robinraju/release-downloader@v1
-#        with:
-#          repository: 'fatedier/frp'
-#          tag: ${{ github.ref_name }}
-#          tarBall: true
-#      - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
-#      - working-directory: frp-${{ env.FRP_VERSION }}
-#        env:
-#          GOARCH: 'loong64'
-#          DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
-#        run: |
-#          sudo apt-get build-dep .
-#          sudo apt-get install binutils-loong64-linux-gnu
-#          rm -rf .github
-#          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
-#          dpkg-buildpackage -us -uc -Zgzip -d -a loong64
-#      - uses: softprops/action-gh-release@v2
-#        if: github.ref_type == 'tag'
-#        with:
-#          files: |
-#            frp_${{ env.FRP_VERSION }}-1_loong64.buildinfo
-#            frp_${{ env.FRP_VERSION }}-1_loong64.changes
-#            frpc_${{ env.FRP_VERSION }}-1_loong64.deb
-#            frps_${{ env.FRP_VERSION }}-1_loong64.deb
+  build_loong64:
+    name: Build loong64 packages
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Building with ${{ github.ref_name }}"
+      - run: |
+          TAG=${{ github.ref_name }}
+          echo "FRP_VERSION=${TAG#v}" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+        with:
+          path: frp-${{ env.FRP_VERSION }}
+      - uses: robinraju/release-downloader@v1
+        with:
+          repository: 'fatedier/frp'
+          tag: ${{ github.ref_name }}
+          tarBall: true
+      - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
+      - working-directory: frp-${{ env.FRP_VERSION }}
+        env:
+          GOARCH: 'loong64'
+          DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
+        run: |
+          sudo apt-get build-dep .
+          sudo apt-get install binutils-loongarch64-linux-gnu
+          rm -rf .github
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
+          dpkg-buildpackage -us -uc -Zgzip -d -a loong64
+      - uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            frp_${{ env.FRP_VERSION }}-1_loong64.buildinfo
+            frp_${{ env.FRP_VERSION }}-1_loong64.changes
+            frpc_${{ env.FRP_VERSION }}-1_loong64.deb
+            frps_${{ env.FRP_VERSION }}-1_loong64.deb
   build_mips64el:
     name: Build mips64el packages
     runs-on: ubuntu-24.04

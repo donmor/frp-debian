@@ -1,3 +1,15 @@
+frp (0.60.0-1) unstable; urgency=medium
+
+  * Added a new plugin tls2raw: Enables TLS termination and forwarding of
+    decrypted raw traffic to local service.
+  * Added a default timeout of 30 seconds for the frpc subcommands to prevent
+    commands from being stuck for a long time due to network issues.
+  * Fixed the issue that when loginFailExit = false, the frpc stop command
+    cannot be stopped correctly if the server is not successfully connected
+    after startup.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 16:11:01 +0800
+
 frp (0.59.0-1) unstable; urgency=medium
 
   * Added a new plugin "http2http" which allows forwarding HTTP requests to
