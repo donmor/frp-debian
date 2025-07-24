@@ -1,3 +1,12 @@
+frp (0.61.0-1) unstable; urgency=medium
+
+  * The frpc visitor command-line parameter adds the --server-user option to
+    specify the username of the server-side proxy to connect to.
+  * Support multiple frpc instances with different subjects when using
+    oidc authentication.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 16:42:46 +0800
+
 frp (0.60.0-1) unstable; urgency=medium
 
   * Added a new plugin tls2raw: Enables TLS termination and forwarding of
