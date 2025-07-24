@@ -1,3 +1,9 @@
+frp (0.53.2-1) unstable; urgency=medium
+
+  * Fix: frpc has a certain chance to panic when login: close of closed channel.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 15:21:03 +0800
+
 frp (0.53.1-1) unstable; urgency=medium
 
   * (not specified)
