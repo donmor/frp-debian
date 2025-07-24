@@ -1,3 +1,13 @@
+frp (0.48.0-1) unstable; urgency=medium
+
+  * The httpconnect type in tcpmux now supports authentication through the
+    parameters http_user and http_pwd.
+  * The web framework has been upgraded to vue3 + element-plus, and the
+    dashboard has added some information display and supports dark mode.
+  * The e2e testing has been switched to ginkgo v2.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 11:45:20 +0800
+
 frp (0.47.0-1) unstable; urgency=medium
 
   * Added config bandwidth_limit_mode in frpc, default value is client which is
