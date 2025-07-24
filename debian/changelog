@@ -1,3 +1,12 @@
+frp (0.52.1-1) unstable; urgency=medium
+
+  * Fix: transport.tls.disableCustomTLSFirstByte doesn't have any effect.
+  * Fix: The Server API did not return the data correctly.
+  * Fix: The Dashboard is unable to display data.
+  * Fix: natHoleStunServer is missing a default value.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 14:57:52 +0800
+
 frp (0.52.0-1) unstable; urgency=medium
 
   * Configuration: We now support TOML, YAML, and JSON for configuration.
