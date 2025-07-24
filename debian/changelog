@@ -1,3 +1,14 @@
+frp (0.51.0-1) unstable; urgency=medium
+
+  * frpc supports connecting to frps via the wss protocol by enabling the
+    configuration protocol = wss.
+  * frpc supports stopping the service through the stop command.
+  * service.Run supports passing in context.
+  * Fix an issue caused by a bug in yamux that prevents wss from working
+    properly in certain plugins.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 11:57:18 +0800
+
 frp (0.50.0-1) unstable; urgency=medium
 
   * Added support for allow_users in stcp, sudp, xtcp. By default, only the
