@@ -1,4 +1,2 @@
-#conf/frps.toml etc/frp
+conf/frps.toml etc/frp
 #conf/frps_full_example.toml etc/frp
-conf/frps.ini etc/frp
-conf/frps_full.ini etc/frp
