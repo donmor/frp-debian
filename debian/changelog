@@ -1,3 +1,9 @@
+frp (0.55.1-1) unstable; urgency=medium
+
+  * No feature changes, just a fix for the issue of no released assets in version 0.55.0.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 15:50:46 +0800
+
 frp (0.55.0-1) unstable; urgency=medium
 
   * The minimum supported Go version has been updated to 1.22. In the new
