@@ -1,3 +1,15 @@
+frp (0.59.0-1) unstable; urgency=medium
+
+  * Added a new plugin "http2http" which allows forwarding HTTP requests to
+    another HTTP server, supporting options like local address binding, host
+    header rewrite, and custom request headers.
+  * Added enableHTTP2 option to control whether to enable HTTP/2 in plugin
+    https2http and https2https, default is true.
+  * Plugin https2http & https2https: return 421 Misdirected Request if host
+    not match sni.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 16:05:22 +0800
+
 frp (0.58.1-1) unstable; urgency=medium
 
   * Fixed an issue where HTTP/2 was not enabled for https2http and https2https
