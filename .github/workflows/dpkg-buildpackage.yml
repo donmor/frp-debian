@@ -24,17 +24,9 @@ jobs:
       - working-directory: frp-${{ env.FRP_VERSION }}
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
-          dpkg-buildpackage -us -uc -Zgzip -d
+          dpkg-buildpackage -us -uc -Zgzip
       - uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
@@ -69,17 +61,9 @@ jobs:
       - working-directory: frp-${{ env.FRP_VERSION }}
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-arm64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
-          dpkg-buildpackage -us -uc -Zgzip -d
+          dpkg-buildpackage -us -uc -Zgzip
       - uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
@@ -110,14 +94,6 @@ jobs:
           GOARCH: '386'
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-i686-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -153,14 +129,6 @@ jobs:
           GOARM: '7'
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-arm64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-arm-linux-gnueabihf
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -196,14 +164,6 @@ jobs:
           GOARM: '5'
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-arm64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-arm-linux-gnueabi
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -239,14 +199,6 @@ jobs:
 #          DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
 #        run: |
 #          sudo apt-get build-dep .
-#          # Get golang 1.20
-#          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-#          sudo rm -rf /usr/local/go
-#          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-#          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-#          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-#          sudo apt remove golang-*-go
-#          # End hack
 #          sudo apt-get install binutils-loong64-linux-gnu
 #          rm -rf .github
 #          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -282,14 +234,6 @@ jobs:
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-mips64el-linux-gnuabi64
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -325,14 +269,6 @@ jobs:
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-mipsel-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -368,14 +304,6 @@ jobs:
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-powerpc64le-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -411,14 +339,6 @@ jobs:
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-powerpc64-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -454,14 +374,6 @@ jobs:
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-riscv64-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -497,14 +409,6 @@ jobs:
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
           sudo apt-get build-dep .
-          # Get golang 1.20
-          curl -o /tmp/go-1.20.tar.gz https://dl.google.com/go/go1.20.2.linux-amd64.tar.gz
-          sudo rm -rf /usr/local/go
-          sudo tar -C /usr/local/lib -xzf /tmp/go-1.20.tar.gz
-          sudo ln -sf ../lib/go/bin/go /usr/local/bin/go
-          sudo ln -sf ../lib/go/bin/gofmt /usr/local/bin/gofmt
-          sudo apt remove golang-*-go
-          # End hack
           sudo apt-get install binutils-s390x-linux-gnu
           rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
