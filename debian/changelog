@@ -1,3 +1,16 @@
+frp (0.49.0-1) unstable; urgency=medium
+
+  * The frpc has added the nathole discover command for testing the NAT type of
+    the current network.
+  * XTCP has been refactored, resulting in a significant improvement in the
+    success rate of penetration.
+  * When verifying passwords, use subtle.ConstantTimeCompare and introduce a
+    certain delay when the password is incorrect.
+  * Fix the problem of lagging when opening multiple table entries in the frps
+    dashboard.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 11:49:51 +0800
+
 frp (0.48.0-1) unstable; urgency=medium
 
   * The httpconnect type in tcpmux now supports authentication through the
