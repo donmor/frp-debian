@@ -8,3 +8,4 @@
 !.github/workflows/
 .github/workflows/*
 !.github/workflows/dpkg-buildpackage.yml
+!.github/workflows/.extras.sh

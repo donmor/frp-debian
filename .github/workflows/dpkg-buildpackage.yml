@@ -23,10 +23,10 @@ jobs:
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
       - working-directory: frp-${{ env.FRP_VERSION }}
         run: |
-          sudo apt-get build-dep .
-          rm -rf .github
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
-          dpkg-buildpackage -us -uc -Zgzip
+          dpkg-buildpackage -us -uc -Zgzip -d
       - uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
@@ -59,11 +59,13 @@ jobs:
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
       - working-directory: frp-${{ env.FRP_VERSION }}
+        env:
+          GOARCH: 'arm64'
         run: |
-          sudo apt-get build-dep .
-          rm -rf .github
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
-          dpkg-buildpackage -us -uc -Zgzip
+          dpkg-buildpackage -us -uc -Zgzip -d
       - uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
@@ -93,9 +95,9 @@ jobs:
         env:
           GOARCH: '386'
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-i686-linux-gnu
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a i386
       - uses: softprops/action-gh-release@v2
@@ -128,9 +130,9 @@ jobs:
           GOARCH: 'arm'
           GOARM: '7'
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-arm-linux-gnueabihf
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a armhf
       - uses: softprops/action-gh-release@v2
@@ -163,9 +165,9 @@ jobs:
           GOARCH: 'arm'
           GOARM: '5'
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-arm-linux-gnueabi
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a armel
       - uses: softprops/action-gh-release@v2
@@ -198,9 +200,9 @@ jobs:
           GOARCH: 'loong64'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-loongarch64-linux-gnu
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a loong64
       - uses: softprops/action-gh-release@v2
@@ -233,9 +235,9 @@ jobs:
           GOARCH: 'mips64le'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-mips64el-linux-gnuabi64
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a mips64el
       - uses: softprops/action-gh-release@v2
@@ -268,9 +270,9 @@ jobs:
           GOARCH: 'mipsle'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-mipsel-linux-gnu
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a mipsel
       - uses: softprops/action-gh-release@v2
@@ -303,9 +305,9 @@ jobs:
           GOARCH: 'ppc64le'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-powerpc64le-linux-gnu
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a ppc64el
       - uses: softprops/action-gh-release@v2
@@ -338,9 +340,9 @@ jobs:
           GOARCH: 'ppc64'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-powerpc64-linux-gnu
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a ppc64
       - uses: softprops/action-gh-release@v2
@@ -373,9 +375,9 @@ jobs:
           GOARCH: 'riscv64'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-riscv64-linux-gnu
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a riscv64
       - uses: softprops/action-gh-release@v2
@@ -408,9 +410,9 @@ jobs:
           GOARCH: 's390x'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
-          sudo apt-get build-dep .
+          mv .github/workflows /tmp
+          /tmp/workflows/.extras.sh
           sudo apt-get install binutils-s390x-linux-gnu
-          rm -rf .github
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
           dpkg-buildpackage -us -uc -Zgzip -d -a s390x
       - uses: softprops/action-gh-release@v2
