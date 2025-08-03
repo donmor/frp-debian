@@ -14,9 +14,8 @@
 # Package maintainers to append LDFLAGS.
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
-GOPROXY ?= direct
-export GOPROXY
-export GO111MODULE=on
+export GOPROXY ?= direct
+export GO111MODULE := on
 
 %:
 	dh $@
@@ -29,11 +28,6 @@ override_dh_installsystemd:
 	dh_installsystemd --name=frps@
 	dh_installsystemd --name=frpc
 	dh_installsystemd --name=frpc@
-
-.IGNORE: execute_after_dh_install
-execute_after_dh_install:
-	chmod -R +w obj-*
-	rm -rf obj-*
 
 # Fix strip error
 .IGNORE: override_dh_strip

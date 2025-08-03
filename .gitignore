@@ -1,5 +1,12 @@
 *
 !debian/
+!debian/*
+!debian/patches/
+!debian/patches/*
+!debian/source/
+!debian/source/*
+!debian/upstream/
+!debian/upstream/*
 !.gitignore
 !README.md
 !LICENSE
@@ -8,4 +15,5 @@
 !.github/workflows/
 .github/workflows/*
 !.github/workflows/dpkg-buildpackage.yml
+!.github/workflows/dpkg-scan.yml
 !.github/workflows/.extras.sh
