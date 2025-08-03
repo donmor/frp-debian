@@ -1,3 +1,12 @@
+frp (0.64.0-1) unstable; urgency=medium
+
+  * Support tokenSource for loading authentication tokens from files.
+  * Fix SSH tunnel gateway incorrectly binding to proxyBindAddr instead of
+    bindAddr, which caused external connections to fail when proxyBindAddr
+    was set to 127.0.0.1.
+
+ -- donmor <donmor3000@hotmail.com>  Thu, 24 Jul 2025 20:06:53 +0800
+
 frp (0.63.0-1) unstable; urgency=medium
 
   * Support for YAML merge functionality (anchors and references with

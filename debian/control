@@ -13,8 +13,8 @@ Homepage: https://github.com/fatedier/frp
 Package: frp
 Architecture: all
 Depends:
- frps (>= ${source:Version}),
- frpc (>= ${source:Version}),
+ frps (= ${source:Version}),
+ frpc (= ${source:Version}),
  ${misc:Depends},
 Description: Fast Reverse Proxy - Meta package
  Frp is a fast reverse proxy that allows you to expose a local server located
@@ -27,7 +27,7 @@ Architecture: any
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- frps-common (>= ${source:Version}),
+ frps-common (= ${source:Version}),
 Description: Fast Reverse Proxy - Server
  Frp is a fast reverse proxy that allows you to expose a local server located
  behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
@@ -39,7 +39,7 @@ Architecture: all
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- frps (>= ${source:Version}),
+ frps (= ${source:Version}),
 Description: Fast Reverse Proxy - Server common files
  Frp is a fast reverse proxy that allows you to expose a local server located
  behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
@@ -51,7 +51,7 @@ Architecture: any
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- frpc-common (>= ${source:Version}),
+ frpc-common (= ${source:Version}),
 Description: Fast Reverse Proxy - Client
  Frp is a fast reverse proxy that allows you to expose a local server located
  behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
@@ -63,7 +63,7 @@ Architecture: all
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- frpc (>= ${source:Version}),
+ frpc (= ${source:Version}),
 Description: Fast Reverse Proxy - Client common files
  Frp is a fast reverse proxy that allows you to expose a local server located
  behind a NAT or firewall to the Internet. It currently supports TCP and UDP,
