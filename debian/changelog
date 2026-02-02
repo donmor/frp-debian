@@ -1,3 +1,16 @@
+frp (0.67.0-1) unstable; urgency=medium
+
+  * frpc now supports a clientID option to uniquely identify client instances.
+    The server dashboard displays all connected clients with their
+    online/offline status, connection history, and metadata, making it easier
+    to monitor and manage multiple frpc deployments.
+  * Redesigned the frp web dashboard with a modern UI, dark mode support, and
+    improved navigation.
+  * Fixed UDP proxy protocol sending header on every packet instead of only
+    the first packet of each session.
+
+ -- donmor <donmor3000@hotmail.com>  Mon, 02 Feb 2026 11:02:41 +0800
+
 frp (0.66.0-1) unstable; urgency=medium
 
   * HTTPS proxies now support load balancing groups. Multiple HTTPS proxies

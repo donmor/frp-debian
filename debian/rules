@@ -21,7 +21,9 @@ export GO111MODULE := on
 	dh $@
 
 override_dh_auto_build:
-	dh_auto_build -- build
+	cd web/frps && npm install
+	cd web/frpc && npm install
+	dh_auto_build -- web build
 
 override_dh_installsystemd:
 	dh_installsystemd --name=frps
