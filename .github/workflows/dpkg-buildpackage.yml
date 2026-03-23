@@ -22,7 +22,10 @@ jobs:
           tarBall: true
       - run: mv frp-${{ github.ref_name }}.tar.gz frp_${{ env.FRP_VERSION }}.orig.tar.gz
       - working-directory: frp-${{ env.FRP_VERSION }}
+        env:
+          GOARCH: 'amd64'
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -62,6 +65,7 @@ jobs:
         env:
           GOARCH: 'arm64'
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1
@@ -95,6 +99,7 @@ jobs:
         env:
           GOARCH: '386'
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-i686-linux-gnu
@@ -130,6 +135,7 @@ jobs:
           GOARCH: 'arm'
           GOARM: '7'
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-arm-linux-gnueabihf
@@ -165,6 +171,7 @@ jobs:
           GOARCH: 'arm'
           GOARM: '5'
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-arm-linux-gnueabi
@@ -200,6 +207,7 @@ jobs:
           GOARCH: 'loong64'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-loongarch64-linux-gnu
@@ -235,6 +243,7 @@ jobs:
           GOARCH: 'mips64le'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-mips64el-linux-gnuabi64
@@ -270,6 +279,7 @@ jobs:
           GOARCH: 'mipsle'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-mipsel-linux-gnu
@@ -305,6 +315,7 @@ jobs:
           GOARCH: 'ppc64le'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-powerpc64le-linux-gnu
@@ -340,6 +351,7 @@ jobs:
           GOARCH: 'ppc64'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-powerpc64-linux-gnu
@@ -375,6 +387,7 @@ jobs:
           GOARCH: 'riscv64'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-riscv64-linux-gnu
@@ -410,6 +423,7 @@ jobs:
           GOARCH: 's390x'
           DEB_BUILD_OPTIONS: 'nocheck' # Skipping all checks as we are cross-compiling
         run: |
+          tar xvf ../frp_${{ env.FRP_VERSION }}.orig.tar.gz --strip-components=1 --wildcards 'fatedier-frp-???????/go.mod'
           mv .github/workflows /tmp
           /tmp/workflows/.extras.sh
           sudo apt-get install binutils-s390x-linux-gnu
