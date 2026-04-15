@@ -1,3 +1,12 @@
+frp (0.68.1-1) unstable; urgency=medium
+
+  * Fixed a configuration-dependent authentication bypass in type = "http"
+    proxies when routeByHTTPUser is used together with httpUser /
+    httpPassword. This affected proxy-style requests. Proxy-style authentication
+    failures now return 407 Proxy Authentication Required.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 15 Apr 2026 09:33:21 +0800
+
 frp (0.68.0-1) unstable; urgency=medium
 
   * Added a built-in store capability for frpc, including persisted store
