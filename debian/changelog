@@ -1,3 +1,15 @@
+frp (0.69.1-1) unstable; urgency=medium
+
+  * transport.wireProtocol = "v2" now also applies to UDP-based proxy
+    payloads, including ordinary UDP and SUDP, so their payload framing is
+    consistent with the selected wire protocol.
+  * Improved SUDP compatibility during mixed transport.wireProtocol deployments,
+    allowing frps to bridge payloads between v1/default and v2 SUDP clients.
+  * XTCP work connection NatHoleSid messages now follow the selected
+    transport.wireProtocol.
+
+ -- donmor <donmor3000@hotmail.com>  Wed, 03 Jun 2026 08:36:01 +0800
+
 frp (0.69.0-1) unstable; urgency=medium
 
   * Added transport.wireProtocol for frpc to select the internal message
